@@ -313,7 +313,10 @@
     "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/903184cfd46628c0ec241a544de2cd15d2ed630c-1024x819.png",
     "publishDate": "2026-03-03T12:12:00.000Z",
     "slug": "agentic-ai-101-reliable-workflows",
-    "title": "Agentic AI 101: From Prompts to Reliable Workflows"
+    "title": "Agentic AI 101: From Prompts to Reliable Workflows",
+    "bodyHtml": "<p>Heading: Agentic AI 101\nSubheadings to create TOC:</p>\n<p>What “agentic” means</p>\n<p>Agentic AI is a pattern where the model doesn’t just answer once. It can plan steps, call tools, and iterate until it completes a goal.</p>\n<p>Where agents help (and where they don’t)</p>\n<p>Agents shine when work involves multiple steps: searching, transforming, checking, and producing a final output.\nThey struggle when the task is unclear, the tools are unreliable, or there is no way to verify correctness.</p>\n<p>The reliability checklist</p>\n<p>Use clear goal + constraints</p>\n<p>Break work into small steps</p>\n<p>Add tool-result validation</p>\n<p>Use timeouts and limits</p>\n<p>Log what the agent did</p>\n<p>A simple example workflow</p>\n<p>Read requirement</p>\n<p>Draft output</p>\n<p>Verify against checklist</p>\n<p>Finalize and format</p>\n<p>Key takeaway</p>\n<p>Agentic AI works best when you treat it like an automation pipeline with guardrails—not magic.</p>\n",
+    "toc": [],
+    "wordCount": 133
   },
   {
     "author": {
@@ -601,7 +604,10 @@
     "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/01f55f2330518b0e115306dbd3c491b672d280e2-1280x720.png",
     "publishDate": "2026-03-02T12:17:00.000Z",
     "slug": "build-time-fetch-why-hugo-headless-cms-is-a-great-combo",
-    "title": "Build-Time Fetch: Why Hugo + Headless CMS Is a Great Combo"
+    "title": "Build-Time Fetch: Why Hugo + Headless CMS Is a Great Combo",
+    "bodyHtml": "<p>The core idea</p>\n<p>Editors work in a CMS. Hugo fetches published content at build time and generates static pages.</p>\n<p>Why it’s fast and stable</p>\n<p>No server rendering on each request</p>\n<p>Pages are static and cached</p>\n<p>Simple hosting (Netlify)</p>\n<p>Trade-offs (honest)</p>\n<p>Content updates require a rebuild</p>\n<p>You must handle missing fields</p>\n<p>Preview needs extra setup (optional)</p>\n<p>The pipeline in plain English</p>\n<p>Sanity stores the content</p>\n<p>A script fetches posts/authors/categories</p>\n<p>Hugo templates render pages</p>\n<p>Netlify deploys</p>\n<p>Key takeaway</p>\n<p>Static + headless is a strong default when you want simplicity and speed.</p>\n",
+    "toc": [],
+    "wordCount": 89
   },
   {
     "author": {
@@ -937,7 +943,10 @@
     "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/eee6a2787292e80802dce431e6e611e0db78eba2-1000x750.png",
     "publishDate": "2026-03-01T12:15:00.000Z",
     "slug": "adding-ai-into-a-cms-without-breaking-governance",
-    "title": "Adding AI into a CMS Without Breaking Governance"
+    "title": "Adding AI into a CMS Without Breaking Governance",
+    "bodyHtml": "<p>Why CMS + AI needs guardrails</p>\n<p>AI can generate text fast, but content teams need consistency, legal safety, and brand voice.</p>\n<p>The minimal safe workflow</p>\n<p>AI generates a draft only (never auto-publish)</p>\n<p>Author reviews and edits</p>\n<p>Reviewer approves</p>\n<p>Publish triggers automation (cache purge etc.)</p>\n<p>What to log</p>\n<p>Prompt used</p>\n<p>Model/tool used</p>\n<p>Timestamp</p>\n<p>Author who requested</p>\n<p>What changed after human edit</p>\n<p>UI ideas that are easy to explain</p>\n<p>“Generate draft” button</p>\n<p>“Rewrite in brand tone” dropdown</p>\n<p>“Summarize this post” action</p>\n<p>Side panel showing AI output + diff</p>\n<p>Key takeaway</p>\n<p>If you can’t explain the workflow to a non-technical reviewer, it’s too complex.</p>\n",
+    "toc": [],
+    "wordCount": 101
   },
   {
     "author": {
@@ -1127,7 +1136,10 @@
     "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/c71f461a12ed69b2d042423f5cdf7ef26a83f626-1024x1024.png",
     "publishDate": "2026-02-12T12:23:00.000Z",
     "slug": "content-ops-automation-from-publish-event-to-cache-purge",
-    "title": "Content Ops Automation: From Publish Event to Cache Purge"
+    "title": "Content Ops Automation: From Publish Event to Cache Purge",
+    "bodyHtml": "<p>What happens when a post is published</p>\n<p>In modern systems, publishing is an event. Other services can react to it.</p>\n<p>Typical actions after publish</p>\n<p>Cache purge / CDN invalidation</p>\n<p>Search index update</p>\n<p>Notifications (Slack/email)</p>\n<p>Analytics tagging</p>\n<p>Why this matters</p>\n<p>It keeps pages fresh and prevents users seeing old content.</p>\n<p>Key takeaway</p>\n<p>Think of content as data: publish events are signals used by automation.</p>\n",
+    "toc": [],
+    "wordCount": 63
   },
   {
     "author": {
@@ -1317,6 +1329,9 @@
     "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/a68a9f35045e0160cd5a155e4d5dea35d561156c-1600x1200.png",
     "publishDate": "2026-02-02T12:20:00.000Z",
     "slug": "evaluating-agent-output-simple-checks-that-prevent-bad-results",
-    "title": "Evaluating Agent Output: Simple Checks That Prevent Bad Results"
+    "title": "Evaluating Agent Output: Simple Checks That Prevent Bad Results",
+    "bodyHtml": "<p>The problem: confident errors</p>\n<p>A model can produce fluent text that is incorrect. Agents add more steps, so mistakes can multiply.</p>\n<p>The simplest verification layers</p>\n<p>Schema validation (required fields present)</p>\n<p>Formatting checks (headings, links, no empty sections)</p>\n<p>Reference checks (category and author exist)</p>\n<p>Basic sanity checks (word count, date present)</p>\n<p>Human-in-the-loop is still necessary</p>\n<p>For public content, always keep a review stage before publishing.</p>\n<p>Key takeaway</p>\n<p>Verification doesn’t need to be fancy; it needs to exist.</p>\n",
+    "toc": [],
+    "wordCount": 76
   }
 ]

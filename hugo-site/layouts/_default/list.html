@@ -1,0 +1,28 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ if .IsHome }}
+  {{/* Home fallback to data-driven list */}}
+  {{ $posts := site.Data.posts }}
+  {{ if not $posts }}
+    <p>No posts found. Run <code>node scripts/fetch-sanity.mjs</code>.</p>
+  {{ else }}
+    <div class="grid">
+      {{ range $posts }}
+        <article class="card">
+          <h2><a href="{{ (printf "/posts/%s/" .slug) | relURL }}">{{ .title }}</a></h2>
+          <p class="meta">
+            {{ with .publishDate }}{{ (time .).Format "02 Jan 2006" }}{{ end }}
+            {{ with .author }} · {{ .name }}{{ end }}
+          </p>
+          {{ with .excerpt }}<p>{{ . }}</p>{{ end }}
+        </article>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ else }}
+  {{/* Generic section list */}}
+  {{ .Content }}
+{{ end }}
+
+{{ end }}

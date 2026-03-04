@@ -3,5 +3,5 @@
 
 <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
 
-{{ $css := resources.Get "scss/main.scss" | toCSS | minify }}
-<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}">

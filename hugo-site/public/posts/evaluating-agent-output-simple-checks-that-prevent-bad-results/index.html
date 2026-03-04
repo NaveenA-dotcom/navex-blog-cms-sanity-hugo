@@ -1,95 +1,103 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-    <meta charset="utf-8">
+  <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Evaluating Agent Output: Simple Checks That Prevent Bad Results | Navex Next-Gen AI Blog</title>
 
 
-<link rel="stylesheet" href="/scss/main.min.css">
+<link rel="stylesheet" href="/scss/main.min.67d7eaea28a1e97af85deb47ad23f75d776fb874f95783d5e01021c368f83874.css">
 </head>
-
 <body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="/">Navex Next-Gen AI Blog</a>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/categories/">Categories</a>
+          <a href="/authors/">Authors</a>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-<header>
-<div class="container">
-<h2><a href="/">Navex Next-Gen AI Blog</a></h2>
-
-<nav>
-<a href="/">Home</a>
-<a href="/categories/">Categories</a>
-<a href="/authors/">Authors</a>
-</nav>
-</div>
-</header>
-
-<main class="container">
-
-
-
+  <main class="container">
+    
 
 
 
-<h1>Evaluating Agent Output: Simple Checks That Prevent Bad Results</h1>
-
-<p>
-
-
-02 Feb 2026
-
-
-</p>
-
-<p>
-
-Author:
-<a href="/authors/anand/">
-Anand
-</a>
-
-</p>
-
-<p>
-
-Category:
-<a href="/categories/agentic-ai/">
-Agentic AI
-</a>
-
-</p>
-
-
-<img src="https://cdn.sanity.io/images/ujhm14iw/production/a68a9f35045e0160cd5a155e4d5dea35d561156c-1600x1200.png" class="hero">
-
-
-<h3>Reading Time</h3>
-
-<p>
 
 
 
-1 min read
+<article>
+    <h1>Evaluating Agent Output: Simple Checks That Prevent Bad Results</h1>
 
-</p>
+    <p class="meta">
+        02 Feb 2026
+        ·
+        
+        
+        1.375 min read
+    </p>
 
-<button onclick="copyLink()">Copy Link</button>
+    <div style="margin: 12px 0;">
+        
+        <a class="tag" href="/categories/agentic-ai/">Category: Agentic AI</a>
+        
+        
+        <a class="tag" href="/authors/anand/">Author: Anand</a>
+        
+    </div>
+
+    
+    <img class="hero" src="https://cdn.sanity.io/images/ujhm14iw/production/a68a9f35045e0160cd5a155e4d5dea35d561156c-1600x1200.png" alt="Evaluating Agent Output: Simple Checks That Prevent Bad Results" />
+    
+
+    <div style="margin: 12px 0;">
+        <button class="btn" type="button" onclick="copyLink()">Copy link</button>
+        <span class="status" id="copyStatus" aria-live="polite"></span>
+    </div>
+
+    
+
+    <section class="prose">
+        <p>The problem: confident errors</p>
+<p>A model can produce fluent text that is incorrect. Agents add more steps, so mistakes can multiply.</p>
+<p>The simplest verification layers</p>
+<p>Schema validation (required fields present)</p>
+<p>Formatting checks (headings, links, no empty sections)</p>
+<p>Reference checks (category and author exist)</p>
+<p>Basic sanity checks (word count, date present)</p>
+<p>Human-in-the-loop is still necessary</p>
+<p>For public content, always keep a review stage before publishing.</p>
+<p>Key takeaway</p>
+<p>Verification doesn’t need to be fancy; it needs to exist.</p>
+
+    </section>
+
+</article>
 
 <script>
-
-function copyLink(){
-navigator.clipboard.writeText(window.location.href);
-alert("Link copied");
-}
-
+    function copyLink() {
+        const status = document.getElementById('copyStatus');
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            status.textContent = 'Copied!';
+            setTimeout(() => status.textContent = '', 2000);
+        }).catch(() => {
+            status.textContent = 'Copy failed';
+            setTimeout(() => status.textContent = '', 2000);
+        });
+    }
 </script>
 
 
-</main>
 
-<footer class="container">
-<p>Built using Sanity + Hugo</p>
-</footer>
+  </main>
 
+  <footer class="container" style="margin-top:24px;border-top:1px solid #eee;padding-top:12px;">
+    <p class="meta">Built using Sanity + Hugo</p>
+  </footer>
 </body>
 </html>

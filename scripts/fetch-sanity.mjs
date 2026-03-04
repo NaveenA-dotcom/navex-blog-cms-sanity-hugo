@@ -53,6 +53,56 @@ const groq = `
 }
 `;
 
+function slugify(text) {
+  return (text ?? "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+}
+
+function escapeHtml(str) {
+  return (str ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+// Simple Portable Text -> HTML + TOC + wordCount
+function portableTextToHtml(blocks = []) {
+  const toc = [];
+  let html = "";
+  let plainText = "";
+
+  for (const b of blocks) {
+    if (!b || b._type !== "block") continue;
+
+    const style = b.style || "normal";
+    const text = (b.children || [])
+      .filter((c) => c && c._type === "span")
+      .map((c) => c.text || "")
+      .join("");
+
+    plainText += " " + text;
+    const safe = escapeHtml(text);
+
+    if (style === "h2" || style === "h3") {
+      const id = slugify(text);
+      toc.push({ level: style, id, text });
+      html += `<${style} id="${id}">${safe}</${style}>\n`;
+    } else {
+      html += `<p>${safe}</p>\n`;
+    }
+  }
+
+  const words = plainText.trim().split(/\s+/).filter(Boolean).length;
+
+  return { html, toc, words };
+}
+
 function writeStub(dir, title, slug) {
   const safeTitle = (title ?? "").replaceAll('"', '\\"');
   const mdPath = path.join(dir, `${slug}.md`);
@@ -80,9 +130,20 @@ async function main() {
   const authors = result.authors ?? [];
   const categories = result.categories ?? [];
 
+  // Enrich posts with bodyHtml, toc, wordCount for Hugo
+  const enrichedPosts = posts.map((p) => {
+    const { html, toc, words } = portableTextToHtml(p.body || []);
+    return {
+      ...p,
+      bodyHtml: html,
+      toc,
+      wordCount: words,
+    };
+  });
+
   // 1) Write Hugo data JSON
   fs.mkdirSync(dataDir, { recursive: true });
-  fs.writeFileSync(postsOut, JSON.stringify(posts, null, 2), "utf8");
+  fs.writeFileSync(postsOut, JSON.stringify(enrichedPosts, null, 2), "utf8");
   fs.writeFileSync(authorsOut, JSON.stringify(authors, null, 2), "utf8");
   fs.writeFileSync(categoriesOut, JSON.stringify(categories, null, 2), "utf8");
 
@@ -91,7 +152,7 @@ async function main() {
   fs.mkdirSync(authorsContentDir, { recursive: true });
   fs.mkdirSync(categoriesContentDir, { recursive: true });
 
-  // Clear old stubs (optional but keeps clean)
+  // Clear old stubs (keeps clean)
   for (const dir of [postsContentDir, authorsContentDir, categoriesContentDir]) {
     for (const file of fs.readdirSync(dir)) {
       if (file !== "_index.md" && file.endsWith(".md")) {
@@ -100,7 +161,7 @@ async function main() {
     }
   }
 
-  for (const p of posts) {
+  for (const p of enrichedPosts) {
     if (!p.slug) continue;
     writeStub(postsContentDir, p.title, p.slug);
   }
@@ -115,7 +176,7 @@ async function main() {
     writeStub(categoriesContentDir, c.title, c.slug);
   }
 
-  console.log(`Exported: ${posts.length} posts, ${authors.length} authors, ${categories.length} categories`);
+  console.log(`Exported: ${enrichedPosts.length} posts, ${authors.length} authors, ${categories.length} categories`);
   console.log(`Wrote JSON to: hugo-site/data/ (posts.json, authors.json, categories.json)`);
   console.log(`Generated stub pages for /posts/, /authors/, /categories/`);
 }

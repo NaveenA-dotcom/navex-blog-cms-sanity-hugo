@@ -1,60 +1,79 @@
 {{ define "main" }}
 
 {{ $slug := .Params.slug }}
-
 {{ $post := index (where site.Data.posts "slug" $slug) 0 }}
 
-<h1>{{ $post.title }}</h1>
+{{ if not $post }}
+<h1>Post not found</h1>
+<p class="meta">Missing post data for slug: <code>{{ $slug }}</code></p>
+{{ else }}
 
-<p>
+<article>
+    <h1>{{ $post.title }}</h1>
 
-{{ with $post.publishDate }}
-{{ (time .).Format "02 Jan 2006" }}
-{{ end }}
+    <p class="meta">
+        {{ with $post.publishDate }}{{ (time .).Format "02 Jan 2006" }}{{ end }}
+        ·
+        {{ $words := $post.wordCount | default 0 }}
+        {{ $mins := div (add $words 199) 200 }}
+        {{ $mins }} min read
+    </p>
 
-</p>
+    <div style="margin: 12px 0;">
+        {{ with $post.category }}
+        <a class="tag" href="{{ printf "/categories/%s/" $post.category.slug | relURL }}">Category: {{ $post.category.title }}</a>
+        {{ end }}
+        {{ with $post.author }}
+        <a class="tag" href="{{ printf "/authors/%s/" $post.author.slug | relURL }}">Author: {{ $post.author.name }}</a>
+        {{ end }}
+    </div>
 
-<p>
+    {{ with $post.heroImageUrl }}
+    <img class="hero" src="{{ . }}" alt="{{ $post.title }}" />
+    {{ end }}
 
-Author:
-<a href="/authors/{{ $post.author.slug }}/">
-{{ $post.author.name }}
-</a>
+    <div style="margin: 12px 0;">
+        <button class="btn" type="button" onclick="copyLink()">Copy link</button>
+        <span class="status" id="copyStatus" aria-live="polite"></span>
+    </div>
 
-</p>
+    {{ with $post.toc }}
+    <section class="toc" aria-label="Table of contents">
+        <strong>Table of contents</strong>
+        <ul>
+            {{ range . }}
+            {{ $lvl := (index . "level") | default "h2" }}
+            {{ $id := (index . "id") | default "" }}
+            {{ $txt := (index . "text") | default "" }}
 
-<p>
+            {{ if and $id $txt }}
+            <li class="{{ if eq $lvl " h3" }}toc-indent{{ end }}">
+                <a href="#{{ $id }}">{{ $txt }}</a>
+            </li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </section>
+    {{ end }}
 
-Category:
-<a href="/categories/{{ $post.category.slug }}/">
-{{ $post.category.title }}
-</a>
+    <section class="prose">
+        {{ $post.bodyHtml | safeHTML }}
+    </section>
 
-</p>
-
-{{ if $post.heroImageUrl }}
-<img src="{{ $post.heroImageUrl }}" class="hero">
-{{ end }}
-
-<h3>Reading Time</h3>
-
-<p>
-
-{{ $text := printf "%s %s" $post.title $post.excerpt }}
-{{ $words := len (split ($text | plainify) " ") }}
-{{ div (add $words 199) 200 }} min read
-
-</p>
-
-<button onclick="copyLink()">Copy Link</button>
+</article>
 
 <script>
-
-function copyLink(){
-navigator.clipboard.writeText(window.location.href);
-alert("Link copied");
-}
-
+    function copyLink() {
+        const status = document.getElementById('copyStatus');
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            status.textContent = 'Copied!';
+            setTimeout(() => status.textContent = '', 2000);
+        }).catch(() => {
+            status.textContent = 'Copy failed';
+            setTimeout(() => status.textContent = '', 2000);
+        });
+    }
 </script>
 
+{{ end }}
 {{ end }}
