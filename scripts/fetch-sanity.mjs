@@ -5,40 +5,67 @@ const projectId = "ujhm14iw";
 const dataset = "production";
 const apiVersion = "2023-05-03";
 
-const outDir = path.join(process.cwd(), "hugo-site", "data");
-const outFile = path.join(outDir, "posts.json");
+const root = process.cwd();
 
-// Hugo content stubs (so /posts/<slug>/ routes exist)
-const postsContentDir = path.join(process.cwd(), "hugo-site", "content", "posts");
+// Output folders
+const dataDir = path.join(root, "hugo-site", "data");
+const postsOut = path.join(dataDir, "posts.json");
+const authorsOut = path.join(dataDir, "authors.json");
+const categoriesOut = path.join(dataDir, "categories.json");
+
+// Content stub folders (for Hugo routes)
+const postsContentDir = path.join(root, "hugo-site", "content", "posts");
+const authorsContentDir = path.join(root, "hugo-site", "content", "authors");
+const categoriesContentDir = path.join(root, "hugo-site", "content", "categories");
 
 const groq = `
-*[_type == "post" && defined(slug.current)] | order(publishDate desc) {
-  title,
-  "slug": slug.current,
-  excerpt,
-  publishDate,
-  "heroImageUrl": heroImage.asset->url,
-  "category": category->{
+{
+  "posts": *[_type == "post" && defined(slug.current)] | order(publishDate desc) {
     title,
     "slug": slug.current,
-    description
+    excerpt,
+    publishDate,
+    "heroImageUrl": heroImage.asset->url,
+    "category": category->{
+      title,
+      "slug": slug.current,
+      description
+    },
+    "author": author->{
+      name,
+      "slug": slug.current,
+      bio,
+      "profileImageUrl": profileImage.asset->url
+    },
+    body
   },
-  "author": author->{
+  "authors": *[_type == "author" && defined(slug.current)] | order(name asc) {
     name,
     "slug": slug.current,
     bio,
     "profileImageUrl": profileImage.asset->url
   },
-  body
+  "categories": *[_type == "category" && defined(slug.current)] | order(title asc) {
+    title,
+    "slug": slug.current,
+    description
+  }
 }
 `;
 
-const query = encodeURIComponent(groq);
-const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${query}`;
+function writeStub(dir, title, slug) {
+  const safeTitle = (title ?? "").replaceAll('"', '\\"');
+  const mdPath = path.join(dir, `${slug}.md`);
+  const md = `---\ntitle: "${safeTitle}"\nslug: "${slug}"\n---\n`;
+  fs.writeFileSync(mdPath, md, "utf8");
+}
 
 async function main() {
-  if (!projectId) throw new Error("projectId is missing");
-  if (!dataset) throw new Error("dataset is missing");
+  if (!projectId) throw new Error("Missing projectId");
+  if (!dataset) throw new Error("Missing dataset");
+
+  const query = encodeURIComponent(groq);
+  const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${query}`;
 
   const res = await fetch(url);
   if (!res.ok) {
@@ -47,31 +74,53 @@ async function main() {
   }
 
   const data = await res.json();
-  const posts = data.result ?? [];
+  const result = data.result ?? {};
 
-  // 1) Write JSON for Hugo data
-  fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(posts, null, 2), "utf8");
+  const posts = result.posts ?? [];
+  const authors = result.authors ?? [];
+  const categories = result.categories ?? [];
 
-  // 2) Generate stub markdown files for each post (routing)
+  // 1) Write Hugo data JSON
+  fs.mkdirSync(dataDir, { recursive: true });
+  fs.writeFileSync(postsOut, JSON.stringify(posts, null, 2), "utf8");
+  fs.writeFileSync(authorsOut, JSON.stringify(authors, null, 2), "utf8");
+  fs.writeFileSync(categoriesOut, JSON.stringify(categories, null, 2), "utf8");
+
+  // 2) Generate stub pages for routing
   fs.mkdirSync(postsContentDir, { recursive: true });
+  fs.mkdirSync(authorsContentDir, { recursive: true });
+  fs.mkdirSync(categoriesContentDir, { recursive: true });
 
-  for (const p of posts) {
-    const slug = p.slug;
-    if (!slug) continue;
-
-    const safeTitle = (p.title ?? "").replaceAll('"', '\\"');
-    const mdPath = path.join(postsContentDir, `${slug}.md`);
-
-    const md = `---\ntitle: "${safeTitle}"\nslug: "${slug}"\n---\n`;
-    fs.writeFileSync(mdPath, md, "utf8");
+  // Clear old stubs (optional but keeps clean)
+  for (const dir of [postsContentDir, authorsContentDir, categoriesContentDir]) {
+    for (const file of fs.readdirSync(dir)) {
+      if (file !== "_index.md" && file.endsWith(".md")) {
+        fs.unlinkSync(path.join(dir, file));
+      }
+    }
   }
 
-  console.log(`✅ Exported ${posts.length} posts to ${outFile}`);
-  console.log(`✅ Generated ${posts.length} stub files in ${postsContentDir}`);
+  for (const p of posts) {
+    if (!p.slug) continue;
+    writeStub(postsContentDir, p.title, p.slug);
+  }
+
+  for (const a of authors) {
+    if (!a.slug) continue;
+    writeStub(authorsContentDir, a.name, a.slug);
+  }
+
+  for (const c of categories) {
+    if (!c.slug) continue;
+    writeStub(categoriesContentDir, c.title, c.slug);
+  }
+
+  console.log(`Exported: ${posts.length} posts, ${authors.length} authors, ${categories.length} categories`);
+  console.log(`Wrote JSON to: hugo-site/data/ (posts.json, authors.json, categories.json)`);
+  console.log(`Generated stub pages for /posts/, /authors/, /categories/`);
 }
 
 main().catch((err) => {
-  console.error("❌", err.message);
+  console.error(err.message);
   process.exit(1);
 });

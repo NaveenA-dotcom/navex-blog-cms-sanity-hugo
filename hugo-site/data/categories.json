@@ -1,0 +1,17 @@
+[
+  {
+    "description": "How to embed AI safely into content workflows with governance.",
+    "slug": "ai-in-cms",
+    "title": "AI in CMS"
+  },
+  {
+    "description": "Practical insights on agent workflows, tool use, and reliability",
+    "slug": "agentic-ai",
+    "title": "Agentic AI"
+  },
+  {
+    "description": "Patterns, architecture, and pragmatic delivery guidance.",
+    "slug": "engineering-playbook",
+    "title": "Engineering Playbook"
+  }
+]

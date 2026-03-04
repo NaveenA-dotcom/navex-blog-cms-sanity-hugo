@@ -1,0 +1,12 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Navex Next-Gen AI Blog"
+
+[taxonomies]
+  category = "categories"
+  author = "authors"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

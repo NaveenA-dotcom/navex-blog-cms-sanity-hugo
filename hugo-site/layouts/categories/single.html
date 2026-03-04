@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ $slug := .Params.slug }}
+{{ $c := index (where site.Data.categories "slug" $slug) 0 }}
+
+{{ if not $c }}
+  <h1>Category not found</h1>
+{{ else }}
+  <h1>{{ $c.title }}</h1>
+  {{ with $c.description }}<p class="meta">{{ . }}</p>{{ end }}
+
+  <h2>Posts in {{ $c.title }}</h2>
+  <div class="grid">
+    {{ range (where site.Data.posts "category.slug" $slug) }}
+      <article class="card">
+        <h3><a href="{{ (printf "/posts/%s/" .slug) | relURL }}">{{ .title }}</a></h3>
+        {{ with .excerpt }}<p>{{ . }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </div>
+{{ end }}
+{{ end }}

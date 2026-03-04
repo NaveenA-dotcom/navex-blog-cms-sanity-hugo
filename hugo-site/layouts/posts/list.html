@@ -1,0 +1,60 @@
+{{ define "main" }}
+
+{{ $slug := .Params.slug }}
+
+{{ $post := index (where site.Data.posts "slug" $slug) 0 }}
+
+<h1>{{ $post.title }}</h1>
+
+<p>
+
+{{ with $post.publishDate }}
+{{ (time .).Format "02 Jan 2006" }}
+{{ end }}
+
+</p>
+
+<p>
+
+Author:
+<a href="/authors/{{ $post.author.slug }}/">
+{{ $post.author.name }}
+</a>
+
+</p>
+
+<p>
+
+Category:
+<a href="/categories/{{ $post.category.slug }}/">
+{{ $post.category.title }}
+</a>
+
+</p>
+
+{{ if $post.heroImageUrl }}
+<img src="{{ $post.heroImageUrl }}" class="hero">
+{{ end }}
+
+<h3>Reading Time</h3>
+
+<p>
+
+{{ $text := printf "%s %s" $post.title $post.excerpt }}
+{{ $words := len (split ($text | plainify) " ") }}
+{{ div (add $words 199) 200 }} min read
+
+</p>
+
+<button onclick="copyLink()">Copy Link</button>
+
+<script>
+
+function copyLink(){
+navigator.clipboard.writeText(window.location.href);
+alert("Link copied");
+}
+
+</script>
+
+{{ end }}

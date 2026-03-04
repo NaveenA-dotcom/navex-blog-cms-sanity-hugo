@@ -1,0 +1,1322 @@
+[
+  {
+    "author": {
+      "bio": "Full-stack engineer focused on headless CMS and practical AI integrations for content teams.",
+      "name": "Anand",
+      "profileImageUrl": null,
+      "slug": "anand"
+    },
+    "body": [
+      {
+        "_key": "d17ce86dd1ef",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c63dbfa3fbef",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Heading:"
+          },
+          {
+            "_key": "83d06640f5c3",
+            "_type": "span",
+            "marks": [],
+            "text": " Agentic AI 101\n"
+          },
+          {
+            "_key": "60c6abd572f7",
+            "_type": "span",
+            "marks": [
+              "strong"
+            ],
+            "text": "Subheadings to create TOC:"
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "af38118f6d4b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "1a24691b22db",
+            "_type": "span",
+            "marks": [],
+            "text": "What “agentic” means"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "89d51329ce51",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "31ef69afd14c",
+            "_type": "span",
+            "marks": [],
+            "text": "Agentic AI is a pattern where the model doesn’t just answer once. It can plan steps, call tools, and iterate until it completes a goal."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8405c94b0da8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "02cbbe2ff95a",
+            "_type": "span",
+            "marks": [],
+            "text": "Where agents help (and where they don’t)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1b92c7db43ac",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5a6798649446",
+            "_type": "span",
+            "marks": [],
+            "text": "Agents shine when work involves multiple steps: searching, transforming, checking, and producing a final output.\nThey struggle when the task is unclear, the tools are unreliable, or there is no way to verify correctness."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "48cae355dff3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2c49dcfbda96",
+            "_type": "span",
+            "marks": [],
+            "text": "The reliability checklist"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "aa066b173121",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2b35b7ec9401",
+            "_type": "span",
+            "marks": [],
+            "text": "Use clear goal + constraints"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "470c598b44fa",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d764f59977d1",
+            "_type": "span",
+            "marks": [],
+            "text": "Break work into small steps"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e39c1f9ee0cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18f83a3e12e7",
+            "_type": "span",
+            "marks": [],
+            "text": "Add tool-result validation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7922967f681c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9122250953eb",
+            "_type": "span",
+            "marks": [],
+            "text": "Use timeouts and limits"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5c4f37ed8069",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f2bd38f2b1a2",
+            "_type": "span",
+            "marks": [],
+            "text": "Log what the agent did"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f8a09208fcd2",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fd74a9b3a958",
+            "_type": "span",
+            "marks": [],
+            "text": "A simple example workflow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0caa81d24bf6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0fd519f8e7f5",
+            "_type": "span",
+            "marks": [],
+            "text": "Read requirement"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b88ab6797b78",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d71e312649ef",
+            "_type": "span",
+            "marks": [],
+            "text": "Draft output"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "9707cc873566",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b996cfa1f537",
+            "_type": "span",
+            "marks": [],
+            "text": "Verify against checklist"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a30e4826cff9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c5f83ed20cd2",
+            "_type": "span",
+            "marks": [],
+            "text": "Finalize and format"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "dfd67a6cd451",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "766cddb1f1fd",
+            "_type": "span",
+            "marks": [],
+            "text": "Key takeaway"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8fe4a0d84a1f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c741f94a6ee4",
+            "_type": "span",
+            "marks": [],
+            "text": "Agentic AI works best when you treat it like an automation pipeline with guardrails—not magic."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": {
+      "description": "Practical insights on agent workflows, tool use, and reliability",
+      "slug": "agentic-ai",
+      "title": "Agentic AI"
+    },
+    "excerpt": "A beginner-friendly guide to agentic AI: what it is, where it helps, and how to keep it reliable in real projects.",
+    "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/903184cfd46628c0ec241a544de2cd15d2ed630c-1024x819.png",
+    "publishDate": "2026-03-03T12:12:00.000Z",
+    "slug": "agentic-ai-101-reliable-workflows",
+    "title": "Agentic AI 101: From Prompts to Reliable Workflows"
+  },
+  {
+    "author": {
+      "bio": "Builds reliable developer platforms and guardrails for scalable content and AI systems.",
+      "name": "Platform Engineering Team",
+      "profileImageUrl": null,
+      "slug": "platform-engineering-team"
+    },
+    "body": [
+      {
+        "_key": "47ae760ceeed",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "bde53eb5d38d",
+            "_type": "span",
+            "marks": [],
+            "text": "The core idea"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "95539f0a9b7c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9549c503e0e4",
+            "_type": "span",
+            "marks": [],
+            "text": "Editors work in a CMS. Hugo fetches published content at build time and generates static pages."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a4f605728db5",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b98b09239b00",
+            "_type": "span",
+            "marks": [],
+            "text": "Why it’s fast and stable"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "5c6c8982c6c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "45dfe8a39f1b",
+            "_type": "span",
+            "marks": [],
+            "text": "No server rendering on each request"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "728ca655caee",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "10bf7d6c3dad",
+            "_type": "span",
+            "marks": [],
+            "text": "Pages are static and cached"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "7a12ad8b9e91",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7b9d38c622e7",
+            "_type": "span",
+            "marks": [],
+            "text": "Simple hosting (Netlify)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "ecb6f3cc8e0b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "df42b085d4f2",
+            "_type": "span",
+            "marks": [],
+            "text": "Trade-offs (honest)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "21a205b1be9f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "127723ca145c",
+            "_type": "span",
+            "marks": [],
+            "text": "Content updates require a rebuild"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "37bbc7184a38",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ccb1b204a586",
+            "_type": "span",
+            "marks": [],
+            "text": "You must handle missing fields"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b62cd36a95db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "16074e085f4f",
+            "_type": "span",
+            "marks": [],
+            "text": "Preview needs extra setup (optional)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "452793e7d6b0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "3ec05570504d",
+            "_type": "span",
+            "marks": [],
+            "text": "The pipeline in plain English"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "81f06b4a87f6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c47fd614e62a",
+            "_type": "span",
+            "marks": [],
+            "text": "Sanity stores the content"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c4b3c38efb3c",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "18291717e4d5",
+            "_type": "span",
+            "marks": [],
+            "text": "A script fetches posts/authors/categories"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "e9e63a3ceb6f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "cad764bd2161",
+            "_type": "span",
+            "marks": [],
+            "text": "Hugo templates render pages"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "8c3b45ae0518",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "49ef32d51e81",
+            "_type": "span",
+            "marks": [],
+            "text": "Netlify deploys"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c1facea40f88",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "839666263980",
+            "_type": "span",
+            "marks": [],
+            "text": "Key takeaway"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b191d369c25e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7f3a76dffa53",
+            "_type": "span",
+            "marks": [],
+            "text": "Static + headless is a strong default when you want simplicity and speed."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": {
+      "description": "Patterns, architecture, and pragmatic delivery guidance.",
+      "slug": "engineering-playbook",
+      "title": "Engineering Playbook"
+    },
+    "excerpt": "Hugo stays fast when content is pulled at build time. This post explains the approach and trade-offs.",
+    "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/01f55f2330518b0e115306dbd3c491b672d280e2-1280x720.png",
+    "publishDate": "2026-03-02T12:17:00.000Z",
+    "slug": "build-time-fetch-why-hugo-headless-cms-is-a-great-combo",
+    "title": "Build-Time Fetch: Why Hugo + Headless CMS Is a Great Combo"
+  },
+  {
+    "author": {
+      "bio": "A shared author profile for internal innovation notes, prototypes, and learnings.",
+      "name": "Navex Innovation Desk",
+      "profileImageUrl": null,
+      "slug": "navex-innovation-desk"
+    },
+    "body": [
+      {
+        "_key": "3322b60a790d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f1ec51caaa70",
+            "_type": "span",
+            "marks": [],
+            "text": "Why CMS + AI needs guardrails"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "30aada6daf1a",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "f671e2cb2cbd",
+            "_type": "span",
+            "marks": [],
+            "text": "AI can generate text fast, but content teams need consistency, legal safety, and brand voice."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f9bb5c6776cf",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "a37c74b221c4",
+            "_type": "span",
+            "marks": [],
+            "text": "The minimal safe workflow"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b457d0750e24",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8e8f0558bab3",
+            "_type": "span",
+            "marks": [],
+            "text": "AI generates a draft only (never auto-publish)"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "252d7c7be55e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fa9559457bb5",
+            "_type": "span",
+            "marks": [],
+            "text": "Author reviews and edits"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "592c2b07f821",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "08a22830e065",
+            "_type": "span",
+            "marks": [],
+            "text": "Reviewer approves"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "31599c4feb18",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0c7f8eb3b892",
+            "_type": "span",
+            "marks": [],
+            "text": "Publish triggers automation (cache purge etc.)"
+          }
+        ],
+        "level": 1,
+        "listItem": "number",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b02d4f4288ca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7eb904ad1510",
+            "_type": "span",
+            "marks": [],
+            "text": "What to log"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "01fdc5f9da1d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "0c1fde17f996",
+            "_type": "span",
+            "marks": [],
+            "text": "Prompt used"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "cd71a070d6db",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "fba91756bf75",
+            "_type": "span",
+            "marks": [],
+            "text": "Model/tool used"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "91cc216c5dc1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ddfd1edbbe29",
+            "_type": "span",
+            "marks": [],
+            "text": "Timestamp"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "33a01460bef1",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d428558d4a2d",
+            "_type": "span",
+            "marks": [],
+            "text": "Author who requested"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b50eb5ad6d5d",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9e125de36849",
+            "_type": "span",
+            "marks": [],
+            "text": "What changed after human edit"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "caedef4d992e",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "29dfd03acea4",
+            "_type": "span",
+            "marks": [],
+            "text": "UI ideas that are easy to explain"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4a73cfaec8c6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "9cfe3ca0a892",
+            "_type": "span",
+            "marks": [],
+            "text": "“Generate draft” button"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "edf925020596",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "999e3f7928b6",
+            "_type": "span",
+            "marks": [],
+            "text": "“Rewrite in brand tone” dropdown"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "81ae852517a3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "e424d6e9bfc1",
+            "_type": "span",
+            "marks": [],
+            "text": "“Summarize this post” action"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "38c60c1281b6",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "097c638b0de0",
+            "_type": "span",
+            "marks": [],
+            "text": "Side panel showing AI output + diff"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c218b53f6e51",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7ade4d013400",
+            "_type": "span",
+            "marks": [],
+            "text": "Key takeaway"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c26aa1f230cd",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2bff2960ffe1",
+            "_type": "span",
+            "marks": [],
+            "text": "If you can’t explain the workflow to a non-technical reviewer, it’s too complex."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": {
+      "description": "How to embed AI safely into content workflows with governance.",
+      "slug": "ai-in-cms",
+      "title": "AI in CMS"
+    },
+    "excerpt": "AI can speed content creation, but you need approvals, audit logs, and safe defaults. Here’s a simple approach.",
+    "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/eee6a2787292e80802dce431e6e611e0db78eba2-1000x750.png",
+    "publishDate": "2026-03-01T12:15:00.000Z",
+    "slug": "adding-ai-into-a-cms-without-breaking-governance",
+    "title": "Adding AI into a CMS Without Breaking Governance"
+  },
+  {
+    "author": {
+      "bio": "A shared author profile for internal innovation notes, prototypes, and learnings.",
+      "name": "Navex Innovation Desk",
+      "profileImageUrl": null,
+      "slug": "navex-innovation-desk"
+    },
+    "body": [
+      {
+        "_key": "8d5d68f31de3",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "c86eaabdb2e9",
+            "_type": "span",
+            "marks": [],
+            "text": "What happens when a post is published"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fa3bb7623bd9",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7e93ba0a0b38",
+            "_type": "span",
+            "marks": [],
+            "text": "In modern systems, publishing is an event. Other services can react to it."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4c6f986275c4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "7d6b386f2235",
+            "_type": "span",
+            "marks": [],
+            "text": "Typical actions after publish"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "175099b6bef7",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "d33be51fa3c5",
+            "_type": "span",
+            "marks": [],
+            "text": "Cache purge / CDN invalidation"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "73f9c9bb7da0",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6958330cec41",
+            "_type": "span",
+            "marks": [],
+            "text": "Search index update"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "4f06f4879ad4",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "287bd82fdfd0",
+            "_type": "span",
+            "marks": [],
+            "text": "Notifications (Slack/email)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a091bf5ef085",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "ab142fb8bbbc",
+            "_type": "span",
+            "marks": [],
+            "text": "Analytics tagging"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "eb3b586d2f2f",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "4cd399e11da6",
+            "_type": "span",
+            "marks": [],
+            "text": "Why this matters"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c1e09b9a7c17",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "5948336f4c50",
+            "_type": "span",
+            "marks": [],
+            "text": "It keeps pages fresh and prevents users seeing old content."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "a4b81e76e821",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "8c096ec8c6a9",
+            "_type": "span",
+            "marks": [],
+            "text": "Key takeaway"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "c29f388565c8",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "6a664a37dcac",
+            "_type": "span",
+            "marks": [],
+            "text": "Think of content as data: publish events are signals used by automation."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": {
+      "description": "How to embed AI safely into content workflows with governance.",
+      "slug": "ai-in-cms",
+      "title": "AI in CMS"
+    },
+    "excerpt": "A simple explanation of event-driven workflows: publish triggers automation like cache invalidation and notifications.",
+    "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/c71f461a12ed69b2d042423f5cdf7ef26a83f626-1024x1024.png",
+    "publishDate": "2026-02-12T12:23:00.000Z",
+    "slug": "content-ops-automation-from-publish-event-to-cache-purge",
+    "title": "Content Ops Automation: From Publish Event to Cache Purge"
+  },
+  {
+    "author": {
+      "bio": "Full-stack engineer focused on headless CMS and practical AI integrations for content teams.",
+      "name": "Anand",
+      "profileImageUrl": null,
+      "slug": "anand"
+    },
+    "body": [
+      {
+        "_key": "5bf1d3852829",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "db0115f419db",
+            "_type": "span",
+            "marks": [],
+            "text": "The problem: confident errors"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b1578c144b88",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "2990eb095eec",
+            "_type": "span",
+            "marks": [],
+            "text": "A model can produce fluent text that is incorrect. Agents add more steps, so mistakes can multiply."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "3484b0364c68",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b6baa7291b2c",
+            "_type": "span",
+            "marks": [],
+            "text": "The simplest verification layers"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "b80997591bca",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "be3a1f4ac7f4",
+            "_type": "span",
+            "marks": [],
+            "text": "Schema validation (required fields present)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "f2651c219c9b",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "408435eabca2",
+            "_type": "span",
+            "marks": [],
+            "text": "Formatting checks (headings, links, no empty sections)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "1a4ce99b45ec",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "546b6bd90480",
+            "_type": "span",
+            "marks": [],
+            "text": "Reference checks (category and author exist)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "6c9688c3c3da",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "248cd1b2acf6",
+            "_type": "span",
+            "marks": [],
+            "text": "Basic sanity checks (word count, date present)"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "fbc6004cc266",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "28a478e2a0b8",
+            "_type": "span",
+            "marks": [],
+            "text": "Human-in-the-loop is still necessary"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "d30595c41969",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "b22b956a0696",
+            "_type": "span",
+            "marks": [],
+            "text": "For public content, always keep a review stage before publishing."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "19bd56830b35",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "693ce1111dc3",
+            "_type": "span",
+            "marks": [],
+            "text": "Key takeaway"
+          }
+        ],
+        "level": 1,
+        "listItem": "bullet",
+        "markDefs": [],
+        "style": "normal"
+      },
+      {
+        "_key": "0f71068a8b88",
+        "_type": "block",
+        "children": [
+          {
+            "_key": "edc2a7ee8724",
+            "_type": "span",
+            "marks": [],
+            "text": "Verification doesn’t need to be fancy; it needs to exist."
+          }
+        ],
+        "markDefs": [],
+        "style": "normal"
+      }
+    ],
+    "category": {
+      "description": "Practical insights on agent workflows, tool use, and reliability",
+      "slug": "agentic-ai",
+      "title": "Agentic AI"
+    },
+    "excerpt": "Agents can be wrong confidently. Add lightweight checks to prevent nonsense reaching users.",
+    "heroImageUrl": "https://cdn.sanity.io/images/ujhm14iw/production/a68a9f35045e0160cd5a155e4d5dea35d561156c-1600x1200.png",
+    "publishDate": "2026-02-02T12:20:00.000Z",
+    "slug": "evaluating-agent-output-simple-checks-that-prevent-bad-results",
+    "title": "Evaluating Agent Output: Simple Checks That Prevent Bad Results"
+  }
+]

@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ $authors := site.Data.authors }}
+{{ if not $authors }}
+  <p>No authors found. Run <code>node scripts/fetch-sanity.mjs</code>.</p>
+{{ else }}
+  <div class="grid">
+    {{ range $authors }}
+      <article class="card">
+        <h2><a href="{{ (printf "/authors/%s/" .slug) | relURL }}">{{ .name }}</a></h2>
+        {{ with .bio }}<p class="meta">{{ . }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </div>
+{{ end }}
+{{ end }}

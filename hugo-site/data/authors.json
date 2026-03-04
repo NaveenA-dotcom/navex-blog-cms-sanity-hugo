@@ -1,0 +1,20 @@
+[
+  {
+    "bio": "Full-stack engineer focused on headless CMS and practical AI integrations for content teams.",
+    "name": "Anand",
+    "profileImageUrl": null,
+    "slug": "anand"
+  },
+  {
+    "bio": "A shared author profile for internal innovation notes, prototypes, and learnings.",
+    "name": "Navex Innovation Desk",
+    "profileImageUrl": null,
+    "slug": "navex-innovation-desk"
+  },
+  {
+    "bio": "Builds reliable developer platforms and guardrails for scalable content and AI systems.",
+    "name": "Platform Engineering Team",
+    "profileImageUrl": null,
+    "slug": "platform-engineering-team"
+  }
+]

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>//localhost:1313/posts/adding-ai-into-a-cms-without-breaking-governance/</loc>
+  </url><url>
+    <loc>//localhost:1313/categories/agentic-ai/</loc>
+  </url><url>
+    <loc>//localhost:1313/posts/agentic-ai-101-reliable-workflows/</loc>
+  </url><url>
+    <loc>//localhost:1313/categories/ai-in-cms/</loc>
+  </url><url>
+    <loc>//localhost:1313/authors/anand/</loc>
+  </url><url>
+    <loc>//localhost:1313/authors/</loc>
+  </url><url>
+    <loc>//localhost:1313/posts/</loc>
+  </url><url>
+    <loc>//localhost:1313/posts/build-time-fetch-why-hugo-headless-cms-is-a-great-combo/</loc>
+  </url><url>
+    <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/posts/content-ops-automation-from-publish-event-to-cache-purge/</loc>
+  </url><url>
+    <loc>//localhost:1313/categories/engineering-playbook/</loc>
+  </url><url>
+    <loc>//localhost:1313/posts/evaluating-agent-output-simple-checks-that-prevent-bad-results/</loc>
+  </url><url>
+    <loc>//localhost:1313/authors/navex-innovation-desk/</loc>
+  </url><url>
+    <loc>//localhost:1313/</loc>
+  </url><url>
+    <loc>//localhost:1313/authors/platform-engineering-team/</loc>
+  </url>
+</urlset>

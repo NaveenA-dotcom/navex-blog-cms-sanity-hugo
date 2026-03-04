@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Navex Next-Gen AI Blog</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on Navex Next-Gen AI Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Adding AI into a CMS Without Breaking Governance</title>
+      <link>//localhost:1313/posts/adding-ai-into-a-cms-without-breaking-governance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/adding-ai-into-a-cms-without-breaking-governance/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agentic AI</title>
+      <link>//localhost:1313/categories/agentic-ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/agentic-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Agentic AI 101: From Prompts to Reliable Workflows</title>
+      <link>//localhost:1313/posts/agentic-ai-101-reliable-workflows/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/agentic-ai-101-reliable-workflows/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AI in CMS</title>
+      <link>//localhost:1313/categories/ai-in-cms/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/ai-in-cms/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Anand</title>
+      <link>//localhost:1313/authors/anand/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/authors/anand/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Build-Time Fetch: Why Hugo &#43; Headless CMS Is a Great Combo</title>
+      <link>//localhost:1313/posts/build-time-fetch-why-hugo-headless-cms-is-a-great-combo/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/build-time-fetch-why-hugo-headless-cms-is-a-great-combo/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Content Ops Automation: From Publish Event to Cache Purge</title>
+      <link>//localhost:1313/posts/content-ops-automation-from-publish-event-to-cache-purge/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/content-ops-automation-from-publish-event-to-cache-purge/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Engineering Playbook</title>
+      <link>//localhost:1313/categories/engineering-playbook/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/categories/engineering-playbook/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Evaluating Agent Output: Simple Checks That Prevent Bad Results</title>
+      <link>//localhost:1313/posts/evaluating-agent-output-simple-checks-that-prevent-bad-results/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/posts/evaluating-agent-output-simple-checks-that-prevent-bad-results/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Navex Innovation Desk</title>
+      <link>//localhost:1313/authors/navex-innovation-desk/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/authors/navex-innovation-desk/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Platform Engineering Team</title>
+      <link>//localhost:1313/authors/platform-engineering-team/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//localhost:1313/authors/platform-engineering-team/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

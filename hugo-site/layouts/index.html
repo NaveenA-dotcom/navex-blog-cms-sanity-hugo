@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<h1>Latest Blog Posts</h1>
+
+<div class="grid">
+
+{{ range site.Data.posts }}
+
+<article class="card">
+
+<h2>
+<a href="/posts/{{ .slug }}/">
+{{ .title }}
+</a>
+</h2>
+
+<p>
+{{ with .publishDate }}
+{{ (time .).Format "02 Jan 2006" }}
+{{ end }}
+</p>
+
+<p>{{ .excerpt }}</p>
+
+<p>
+Category:
+<a href="/categories/{{ .category.slug }}/">
+{{ .category.title }}
+</a>
+</p>
+
+<p>
+Author:
+<a href="/authors/{{ .author.slug }}/">
+{{ .author.name }}
+</a>
+</p>
+
+</article>
+
+{{ end }}
+
+</div>
+
+{{ end }}

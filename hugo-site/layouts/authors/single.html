@@ -1,0 +1,21 @@
+{{ define "main" }}
+{{ $slug := .Params.slug }}
+{{ $a := index (where site.Data.authors "slug" $slug) 0 }}
+
+{{ if not $a }}
+  <h1>Author not found</h1>
+{{ else }}
+  <h1>{{ $a.name }}</h1>
+  {{ with $a.bio }}<p class="meta">{{ . }}</p>{{ end }}
+
+  <h2>Posts by {{ $a.name }}</h2>
+  <div class="grid">
+    {{ range (where site.Data.posts "author.slug" $slug) }}
+      <article class="card">
+        <h3><a href="{{ (printf "/posts/%s/" .slug) | relURL }}">{{ .title }}</a></h3>
+        {{ with .excerpt }}<p>{{ . }}</p>{{ end }}
+      </article>
+    {{ end }}
+  </div>
+{{ end }}
+{{ end }}
