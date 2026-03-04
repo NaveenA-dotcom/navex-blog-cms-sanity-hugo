@@ -8,6 +8,9 @@ const apiVersion = "2023-05-03";
 const outDir = path.join(process.cwd(), "hugo-site", "data");
 const outFile = path.join(outDir, "posts.json");
 
+// Hugo content stubs (so /posts/<slug>/ routes exist)
+const postsContentDir = path.join(process.cwd(), "hugo-site", "content", "posts");
+
 const groq = `
 *[_type == "post" && defined(slug.current)] | order(publishDate desc) {
   title,
@@ -34,9 +37,8 @@ const query = encodeURIComponent(groq);
 const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${query}`;
 
 async function main() {
-  if (!projectId || projectId.includes("PASTE_")) {
-    throw new Error("Set projectId in scripts/fetch-sanity.mjs");
-  }
+  if (!projectId) throw new Error("projectId is missing");
+  if (!dataset) throw new Error("dataset is missing");
 
   const res = await fetch(url);
   if (!res.ok) {
@@ -45,14 +47,31 @@ async function main() {
   }
 
   const data = await res.json();
+  const posts = data.result ?? [];
 
+  // 1) Write JSON for Hugo data
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(outFile, JSON.stringify(data.result ?? [], null, 2), "utf8");
+  fs.writeFileSync(outFile, JSON.stringify(posts, null, 2), "utf8");
 
-  console.log(`✅ Exported ${data.result?.length ?? 0} posts to ${outFile}`);
+  // 2) Generate stub markdown files for each post (routing)
+  fs.mkdirSync(postsContentDir, { recursive: true });
+
+  for (const p of posts) {
+    const slug = p.slug;
+    if (!slug) continue;
+
+    const safeTitle = (p.title ?? "").replaceAll('"', '\\"');
+    const mdPath = path.join(postsContentDir, `${slug}.md`);
+
+    const md = `---\ntitle: "${safeTitle}"\nslug: "${slug}"\n---\n`;
+    fs.writeFileSync(mdPath, md, "utf8");
+  }
+
+  console.log(`✅ Exported ${posts.length} posts to ${outFile}`);
+  console.log(`✅ Generated ${posts.length} stub files in ${postsContentDir}`);
 }
 
 main().catch((err) => {
-  console.error(err.message);
+  console.error("❌", err.message);
   process.exit(1);
 });
