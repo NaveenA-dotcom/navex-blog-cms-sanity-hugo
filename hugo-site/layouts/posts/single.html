@@ -10,9 +10,6 @@
 
 <article>
   <h1>{{ $post.title }}</h1>
-
-  <p class="meta">TEMPLATE_CHECK: layouts/posts/single.html</p>
-
   <p class="meta">
     {{ with $post.publishDate }}{{ (time .).Format "02 Jan 2006" }}{{ end }}
     ·
